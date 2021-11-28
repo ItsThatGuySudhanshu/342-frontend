@@ -20,7 +20,7 @@ const Movies = ({user}) => {
                 setLoading(true);
                 const movies = await axios.get('https://warm-bayou-22517.herokuapp.com/api/movies');
                 setMovies(movies.data);
-                const watchlistResponse = await axios.get(`/api/users/${user.sub.substring(6)}/watchlist`);
+                const watchlistResponse = await axios.get(`https://warm-bayou-22517.herokuapp.com/api/users/${user.sub.substring(6)}/watchlist`);
                 setWatchlist(watchlistResponse.data);
                 setLoading(false);
                 console.log(user);
