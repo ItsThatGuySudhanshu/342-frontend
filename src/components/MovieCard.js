@@ -26,10 +26,10 @@ const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_pat
     }, [watchlist, movies]);
 
    // Adds a movie to the user's watchlist
-    const addMovieToWatchlist = async () => {   
+    const addMovieToWatchlist = async () => {
         let movie;
         try {
-            movie = await axios.post(`/users/${user.sub.substring(6)}/watchlist/add`, {
+            movie = await axios.post(`/api/users/${user.sub.substring(6)}/watchlist/add`, {
                 id,
                 title,
                 poster_path,
@@ -50,7 +50,7 @@ const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_pat
     // Deletes a movie from the user's watchlist
     const removeMovieFromWatchlist = async () => {
         try {
-            await axios.delete(`/users/${user.sub.substring(6)}/watchlist/remove`, {
+            await axios.delete(`/api/users/${user.sub.substring(6)}/watchlist/remove`, {
                 data: {
                     id,
                     title,
@@ -89,7 +89,7 @@ const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_pat
             <div id="movie-info">
                 <h6><b>{ title }</b></h6>
                 <p style={{paddingTop: '0.5rem'}}>
-                    {new Date(release_date).toLocaleString('en-us', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })} 
+                    {new Date(release_date).toLocaleString('en-us', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })}
                     {displayVoteAverage(vote_average)}
                 </p>
                 <Button variant="danger" onClick={ inWatchlist ? removeMovieFromWatchlist : addMovieToWatchlist }>{ buttonText }</Button>
