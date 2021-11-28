@@ -29,7 +29,7 @@ const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_pat
     const addMovieToWatchlist = async () => {
         let movie;
         try {
-            movie = await axios.post(`/api/users/${user.sub.substring(6)}/watchlist/add`, {
+            movie = await axios.post(`https://warm-bayou-22517.herokuapp.com//api/users/${user.sub.substring(6)}/watchlist/add`, {
                 id,
                 title,
                 poster_path,
@@ -50,7 +50,7 @@ const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_pat
     // Deletes a movie from the user's watchlist
     const removeMovieFromWatchlist = async () => {
         try {
-            await axios.delete(`/api/users/${user.sub.substring(6)}/watchlist/remove`, {
+            await axios.delete(`https://warm-bayou-22517.herokuapp.com//api/users/${user.sub.substring(6)}/watchlist/remove`, {
                 data: {
                     id,
                     title,
