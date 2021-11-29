@@ -38,8 +38,9 @@ const Watchlist = ({user, movies}) => {
     }
 
     return (
-        <Container fluid className="watchlist-container">
+        <Container className="watchlist-container">
             <Row>
+                <h1 id='watchlistTitle'>My Watchlist</h1>
                 <Col xs={2} id="filter-container">
                     <br></br>
                     <Search movies={watchlist} setMovies={setWatchlist}/>
@@ -49,7 +50,6 @@ const Watchlist = ({user, movies}) => {
                     <Filter movies={watchlist} watchlist={null} setMovies={setWatchlist} setWatchlist={null} />
                 </Col>
                 <Col xs={10} id="movie-container">
-                    <h1 id='watchlistTitle'>My Watchlist</h1>
                     <MovieWatchlist movies={watchlist} watchlist={watchlist} setWatchlist={setWatchlist} user={user} />
                 </Col>
             </Row>

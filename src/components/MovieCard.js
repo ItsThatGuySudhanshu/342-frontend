@@ -6,23 +6,21 @@ import { Button } from 'react-bootstrap';
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_path, overview, vote_average, vote_count, release_date, popularity}) => {
-    const [buttonText, setButtonText] = useState('+');
     const [inWatchlist, setInWatchlist] = useState(false);
 
-    useEffect(() => {
-        // checks if the movie is in the user's watchlist
-        const isMovieInWatchlist = () => {
-            const result = watchlist.filter(movie => (movie.id === id))
-            if (result.length > 0 || inWatchlist) {
-                setButtonText('-');
-                setInWatchlist(true);
-            } else {
-                setButtonText('+');
-                setInWatchlist(false);
-            }
+    // checks if the movie is in the user's watchlist
+    const isMovieInWatchlist = () => {
+        const result = watchlist.filter(movie => (movie.id === id))
+        if (result.length > 0 || inWatchlist) {
+            setInWatchlist(true);
+        } else {
+            setInWatchlist(false);
         }
+    }
 
-        isMovieInWatchlist(); // eslint-disable-next-line
+    useEffect(
+        () => {
+            isMovieInWatchlist(); // eslint-disable-next-line
     }, [watchlist, movies]);
 
    // Adds a movie to the user's watchlist
@@ -39,7 +37,6 @@ const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_pat
                 release_date,
                 popularity
             });
-            setButtonText('-');
             setInWatchlist(true);
             setWatchlist([...watchlist, movie]);
         } catch (err) {
@@ -63,7 +60,6 @@ const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_pat
                 }
             });
             const filteredMovies = watchlist.filter((movie) => movie.id !== id);
-            setButtonText('+');
             setInWatchlist(false);
             setWatchlist(filteredMovies);
         } catch (err) {
@@ -92,7 +88,7 @@ const MovieCard = ({user, watchlist, movies, setWatchlist, id, title, poster_pat
                     {new Date(release_date).toLocaleString('en-us', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' })}
                     {displayVoteAverage(vote_average)}
                 </p>
-                <Button variant="danger" onClick={ inWatchlist ? removeMovieFromWatchlist : addMovieToWatchlist }>{ buttonText }</Button>
+                <Button variant="danger" onClick={ inWatchlist ? removeMovieFromWatchlist : addMovieToWatchlist }>{ inWatchlist ? '-':'+' }</Button>
             </div>
         </div>
     )

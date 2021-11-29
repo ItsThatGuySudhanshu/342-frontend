@@ -1,7 +1,6 @@
 import Landing from "./components/Landing";
 import Movies from "./components/Movies";
 import Watchlist from "./components/Watchlist";
-import Profile from "./components/Profile";
 import Header from "./components/Header";
 import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/auth/ProtectedRoute'
@@ -30,7 +29,6 @@ function App() {
           <Route path="/" exact component={Landing} />
           <ProtectedRoute path="/movies" exact component={() => <Movies user={user} />} />
           <ProtectedRoute path="/watchlist" exact component={() => <Watchlist user={user} />} />
-          <ProtectedRoute path="/profile" exact component={() => <Profile user={user} />} />
         </Switch>
       </div>
     </div>

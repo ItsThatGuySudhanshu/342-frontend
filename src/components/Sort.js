@@ -20,7 +20,7 @@ const Sort = ({movies, setMovies}) => {
     }
 
     return (
-        <DropdownButton title="Sort By" variant="danger" onSelect={(e) => setMovies(updateSort(e))}>
+        <DropdownButton title="Sort Movies By" variant="danger" size="lg" onSelect={(e) => setMovies(updateSort(e))}>
             <Dropdown.Item eventKey="Popularity Ascending">Popularity Ascending</Dropdown.Item>
             <Dropdown.Item eventKey="Ratings Ascending">Ratings Ascending</Dropdown.Item>
             <Dropdown.Item eventKey="Release Date Ascending">Release Date Ascending</Dropdown.Item>

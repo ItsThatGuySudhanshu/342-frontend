@@ -51,7 +51,6 @@ const Filter = ({movies, setMovies, watchlist, setWatchlist}) => {
                     </AccordionSummary>
                     <Divider />
                     <AccordionDetails>
-                    <br/>
                         <FormControl 
                             component="fieldset" 
                             focused={false}

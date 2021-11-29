@@ -1,10 +1,10 @@
-import '../styles/Nav.css';
+import '../styles/Header.css';
 import Logo from '../assets/state.png';
 import { Button, Navbar, Nav } from 'react-bootstrap';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Header = () => {
-    const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+    const {loginWithRedirect, logout, isAuthenticated} = useAuth0();
 
     const buttonStyle = {
         width: '90px',
@@ -42,7 +42,7 @@ const Header = () => {
                     <Nav.Link href='/'>Home</Nav.Link>
                     <Nav.Link href='/movies'>Movies</Nav.Link>
                     <Nav.Link href='/watchlist'>Watchlist</Nav.Link>
-                    <Nav.Link href='/profile'>Profile</Nav.Link>
+                    <Nav.Link></Nav.Link>
                 </Nav>
                 <Nav>
                     {renderAuthButton()}

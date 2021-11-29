@@ -40,9 +40,9 @@ if (loading) {
     }
 
     return (
-        <Container fluid className="movie-page">
+        <Container className="movie-page">
             <Row>
-                <h2 id='moviesPageTitle'>Popular Movies</h2>
+                <h1 id='moviesPageTitle'>Popular Movies</h1>
                 <Col xs={2}>
                     <br></br>
                     <Search movies={movies} setMovies={setMovies}/>

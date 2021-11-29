@@ -30,7 +30,8 @@ const MovieContainer = ({user, movies, watchlist, setWatchlist}) => {
                 }
             </Row>
             <Row id="pageButtons">
-                <ReactPaginate 
+                { movies.length > 0 &&
+                    <ReactPaginate 
                     previousLabel={"Previous"}
                     nextLabel={"Next"}
                     pageCount={pageCount}
@@ -40,7 +41,8 @@ const MovieContainer = ({user, movies, watchlist, setWatchlist}) => {
                     nextLinkClassName={"nextBttn"}
                     disabledClassName={"paginationDisabled"}
                     activeClassName={"paginationActive"}
-                />
+                    />
+                }
             </Row>
         </Container>
     )

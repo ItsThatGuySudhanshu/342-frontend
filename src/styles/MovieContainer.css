@@ -1,5 +1,6 @@
 .movie-container {
 	padding: 0;
+	min-width: 1160px;
 }
 
 #moviesPageTitle {
@@ -38,5 +39,4 @@
 #pageButtons {
 	display: flex;
 	margin-top: 2rem;
-	padding-left: 13rem;
 }
